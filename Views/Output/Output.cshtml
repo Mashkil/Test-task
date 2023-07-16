@@ -1,0 +1,37 @@
+﻿@using Test_task.Data;
+@model List<OutputObject>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+</head>
+<body>
+    <div>
+        <table class="table" width="100">
+            <thead>
+                <tr>
+                    <th>Наименование категори</th>
+                    <th>Наименование товара</th>
+                    <th>Цена товара</th>
+                    <th>Описание товара</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var data in Model)
+                {
+                    <tr>
+                        <td>@data.NameOfCategory</td>
+                        <td>@data.NameOfProduct</td>
+                        <td>@data.Price</td>
+                        <td>@data.Description</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
