@@ -15,6 +15,16 @@ namespace Test_task.Services
 
         public async Task<List<OutputObject>> GetJoinedProductsAndCategories(string nameOfCategory)
         {
+            if (!await _dbcontext.Categories.AnyAsync(e => e.Name == nameOfCategory))
+                return new List<OutputObject>()
+                {
+                    new OutputObject()
+                    {
+                        NameOfCategory = $"Категории {nameOfCategory} не существует"
+                    }
+                };
+
+
             var productsAndCategories = await _dbcontext.Categories
                 .Where(e => e.Name == nameOfCategory)
                 .Join(_dbcontext.Products, p => p.Id, c => c.CategoryId, (p, c) => new OutputObject
@@ -31,7 +41,7 @@ namespace Test_task.Services
                 {
                     new OutputObject()
                     {
-                        NameOfCategory = "Товары в данной категории не найдены"
+                        NameOfCategory = $"Товары в категории {nameOfCategory} не найдены"
                     }
                 };
 

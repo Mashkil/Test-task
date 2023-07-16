@@ -31,7 +31,13 @@ namespace Test_task.Data
                 {
                     Id = 3,
                     Name = "Автомасла"
+                },
+                new Category
+                {
+                    Id = 4,
+                    Name = "Крупы"
                 });
+
 
             modelBuilder.Entity<Product>().HasData(
                 new Product
@@ -60,7 +66,7 @@ namespace Test_task.Data
                 },
                 new Product
                 {
-                    Id=4,
+                    Id = 4,
                     Name = "Sprite",
                     CategoryId = 2,
                     Description = "Безалкогольный напиток 0.5л",
@@ -68,7 +74,7 @@ namespace Test_task.Data
                 },
                 new Product
                 {
-                    Id= 5,
+                    Id = 5,
                     Name = "Масло сливочное",
                     CategoryId = 1,
                     Description = "300г",
@@ -76,7 +82,7 @@ namespace Test_task.Data
                 },
                 new Product
                 {
-                    Id= 6,
+                    Id = 6,
                     Name = "SHELL Helix Ultra",
                     CategoryId = 3,
                     Description = "0w-20 4л",
